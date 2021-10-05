@@ -1,4 +1,5 @@
 import math
+from re import L
 
 from numpy.lib.function_base import angle
 
@@ -44,4 +45,18 @@ def polarLocation(x, y):
     return (radius, math.degrees(angle))
 
 
-print(checkPoint(50, 25, 25))
+def main():
+    print("Welcome to the Progress Pie checker!")
+    with open('input.txt') as f:
+        lines = f.readlines()
+        try:
+            for line in range(1, int(lines[0])+1):
+                values = lines[line].split()
+                print(checkPoint(int(values[0]), int(
+                    values[1]), int(values[2])))
+        except ValueError:
+            print("First line was not a number")
+
+
+if __name__ == '__main__':
+    main()
